@@ -192,6 +192,7 @@ class ShoppingCartSummary extends StatelessWidget {
                       Expanded(
                         child: SelectableText(
                           formatter.format(model.subtotalCost),
+                          key: const Key('ShrinePage_Subtotal'),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
                         ),
@@ -210,6 +211,7 @@ class ShoppingCartSummary extends StatelessWidget {
                       Expanded(
                         child: SelectableText(
                           formatter.format(model.shippingCost),
+                          key: const Key('ShrinePage_Shipping'),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
                         ),
@@ -227,6 +229,7 @@ class ShoppingCartSummary extends StatelessWidget {
                       Expanded(
                         child: SelectableText(
                           formatter.format(model.tax),
+                          key: const Key('ShrinePage_Tax'),
                           style: smallAmountStyle,
                           textAlign: TextAlign.end,
                         ),

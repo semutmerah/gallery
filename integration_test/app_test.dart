@@ -9,6 +9,9 @@ void main() {
   const productPageViewKey = Key('ShrinePage_ProductPageView');
   const openCart = Key('ShrinePage_Cart');
   const cartTotal = Key('ShrinePage_Total');
+  const shippingTotal = Key('ShrinePage_Shipping');
+  const taxTotal = Key('ShrinePage_Tax');
+  const subTotal = Key('ShrinePage_Subtotal');
 
   final reply = find.text('Reply');
   final shrine = find.text('Shrine');
@@ -20,7 +23,6 @@ void main() {
   final accessories = find.text('ACCESSORIES');
   final shrugBag = find.text('Shrug bag');
   final seaTunic = find.text('Sea tunic');
-  final totalPrice = find.text('\$264.16');
   final clearCartButton = find.text('CLEAR CART');
   final noCartItems = find.text('NO ITEMS');
 
@@ -71,7 +73,14 @@ void main() {
       //Checking total of shopping cart
       await tester.tap(find.byKey(openCart));
       await waitUntilElementIsVisible(tester, find.byKey(cartTotal));
-      await expectLater(totalPrice, findsOneWidget);
+
+      var totalObject = find.byKey(cartTotal).evaluate().single.widget as SelectableText;
+      var shippingObject = find.byKey(shippingTotal).evaluate().single.widget as SelectableText;
+      var taxObject = find.byKey(taxTotal).evaluate().single.widget as SelectableText;
+      var subtotalObject = find.byKey(subTotal).evaluate().single.widget as SelectableText;
+      
+      var expectTotal = double.parse(subtotalObject.data.substring(1)) + double.parse(taxObject.data.substring(1)) + double.parse(shippingObject.data.substring(1));
+      await expectLater(double.parse(totalObject.data.substring(1)), equals(double.parse(expectTotal.toStringAsFixed(2))));
 
       //Clear cart
       await tester.tap(clearCartButton);
