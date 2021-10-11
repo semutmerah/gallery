@@ -173,6 +173,7 @@ class ShoppingCartSummary extends StatelessWidget {
                       Expanded(
                         child: SelectableText(
                           formatter.format(model.totalCost),
+                          key: const Key('ShrinePage_Total'),
                           style: largeAmountStyle,
                           textAlign: TextAlign.end,
                         ),

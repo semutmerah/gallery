@@ -416,6 +416,7 @@ class _ExpandingBottomSheetState extends State<ExpandingBottomSheet> {
           Row(
             children: [
               AnimatedPadding(
+                key: const Key('ShrinePage_Cart'),
                 padding: _horizontalCartPaddingFor(numProducts),
                 duration: const Duration(milliseconds: 225),
                 child: const Icon(Icons.shopping_cart),
