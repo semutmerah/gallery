@@ -28,6 +28,8 @@ $ flutter test integration_test
 
 Below is the record when the test running:
 
+https://user-images.githubusercontent.com/10476456/136823416-32362be4-5ac6-4574-b92d-3579dc986a6d.mp4
+
 
 ## Best practices
 On the production ready app, this integration test should be run inside CI/CD environment. On the high level, the flow pretty much like this:
